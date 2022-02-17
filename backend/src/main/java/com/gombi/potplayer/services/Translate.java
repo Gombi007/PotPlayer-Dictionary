@@ -29,7 +29,7 @@ public class Translate {
         // send POST request
         HashMap<String, String> response = restTemplate.postForObject(url, entity, HashMap.class);
 
-        if (response.isEmpty()) {
+        if (response.isEmpty() || !response.containsKey("translatedText")) {
             return "UNKNOWN";
         }
         return response.get("translatedText");
