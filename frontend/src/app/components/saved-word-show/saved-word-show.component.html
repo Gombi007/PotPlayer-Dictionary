@@ -21,3 +21,22 @@
         <h5>{{date}}</h5>
     </div>
 </div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <table class="table table-success table-hover table-borderless">
+            <thead>
+                <th class="myTable">English</th>
+                <th class="myTable">Hungarian</th>
+                <th class="myTable">Date</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let wordRow of wordsByTitle">
+                    <td class="myTable">{{wordRow.word1}}</td>
+                    <td class="myTable">{{wordRow.word2}}</td>
+                    <td class="myTable">{{wordRow.date}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
