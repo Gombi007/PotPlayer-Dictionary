@@ -29,7 +29,7 @@ export class SavedWordShowComponent implements OnInit {
       this.id++;
       if (this.id === 2) {
         this.translate();
-        this.showWordsByTitle();
+        this.showWordsByTitle();    
       }
     });
   }
