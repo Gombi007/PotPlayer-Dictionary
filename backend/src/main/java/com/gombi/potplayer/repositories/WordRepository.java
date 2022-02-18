@@ -9,4 +9,6 @@ import java.util.ArrayList;
 @Repository
 public interface WordRepository extends CrudRepository<Word, Long> {
     ArrayList<Word> findAll();
+
+    ArrayList<Word> findByTitle(String title);
 }

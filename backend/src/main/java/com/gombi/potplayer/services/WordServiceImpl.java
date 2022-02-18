@@ -40,4 +40,9 @@ public class WordServiceImpl implements WordService {
 
     }
 
+    @Override
+    public ArrayList<Word> getWordsByTitle(String title) {
+        return wordRepository.findByTitle(title);
+    }
+
 }

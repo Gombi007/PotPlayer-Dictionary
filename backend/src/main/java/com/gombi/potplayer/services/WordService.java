@@ -8,4 +8,6 @@ public interface WordService {
     ArrayList<Word> showAll();
 
     Word saveWord(String title, String word);
+
+    ArrayList<Word> getWordsByTitle(String title);
 }
