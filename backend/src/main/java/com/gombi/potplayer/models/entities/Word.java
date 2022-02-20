@@ -5,7 +5,7 @@ import javax.persistence.Table;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "dictionary")
+@Table(name = "dictionary_en_hun")
 public class Word extends BusinessObject {
     private String title;
     private String word1;
