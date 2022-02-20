@@ -35,7 +35,7 @@ export class SavedWordShowComponent implements OnInit {
   }
 
   translate() {
-    this.httpClient.get<any>('http://localhost:8080/api/dictionary?title=' + this.title + '&word=' + this.word)
+    this.httpClient.get<any>('http://localhost:8081/api/dictionary?title=' + this.title + '&word=' + this.word)
       .subscribe(
         response => {
           this.translatedWord = response.word2;
@@ -44,11 +44,10 @@ export class SavedWordShowComponent implements OnInit {
   }
 
   showWordsByTitle() {
-    this.httpClient.get<any>('http://localhost:8080/api/dictionary/' + this.title)
+    this.httpClient.get<any>('http://localhost:8081/api/dictionary/' + this.title)
       .subscribe(
         response => {
-          this.wordsByTitle = response;
-          console.log(response);
+          this.wordsByTitle = response;         
         });
   }
 

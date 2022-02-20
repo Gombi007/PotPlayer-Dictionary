@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Word } from '../word';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-search',
@@ -7,16 +8,22 @@ import { Word } from '../word';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  public searchResult:Word;
-  public searchingThisWord:string;
+   searchResult: Word;
+   searchingThisWord: string;
 
-  constructor() { }
+
+  constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
   }
 
-  search(gotWord:string) {
-  
+  search() {   
+    this.httpClient.get<any>('http://localhost:8081/api/dictionary/search/'+this.searchingThisWord)
+      .subscribe(
+        response => {         
+            this.searchResult = response;
+        });
+       
   }
 
 }

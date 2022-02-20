@@ -6,19 +6,23 @@
 
 <form class="row d-flex justify-content-center pt-3">
     <div class="col-auto">
-        <label for="inputPassword2" class="sr-only">Password</label>
-        <input type="password" class="form-control" id="inputPassword2" placeholder="word">
+        <input type="text" class="form-control" id="search" placeholder="word" name="searchingThisWord"
+            [(ngModel)]="searchingThisWord">
     </div>
     <div class="col-auto">
-        <button class="btn btn-dark mb-2">Search</button>
+        <button class="btn btn-dark mb-2" (click)="search()">Search</button>
     </div>
 </form>
 
 
-<div class="row">
+<div class="row pt-3">
     <div class="col-12 d-flex justify-content-center">
-        <div *ngFor="let property of searchResult">
-            <h3></h3>
-                </div>
+        <div class="search-result" *ngIf="searchResult">
+            <h4>TITLE: {{searchResult.title}}</h4>
+            <h4>ENGLISH: {{searchResult.word1}}</h4>
+            <h4>HUNGARIAN: {{searchResult.word2}}</h4>
+            <h4>SAVED AT: {{searchResult.date}} </h4>
+        </div>
+
     </div>
 </div>
