@@ -7,12 +7,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SavedWordShowComponent } from './components/saved-word-show/saved-word-show.component';
+import { SearchComponent } from './components/search/search.component';
+import { ExportComponent } from './components/export/export.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SavedWordShowComponent
+    SavedWordShowComponent,
+    SearchComponent,
+    ExportComponent
   ],
   imports: [
     BrowserModule,
