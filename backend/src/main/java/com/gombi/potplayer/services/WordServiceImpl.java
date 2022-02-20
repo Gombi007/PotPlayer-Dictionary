@@ -27,6 +27,11 @@ public class WordServiceImpl implements WordService {
 
     @Override
     public Word saveWord(String title, String word) {
+        boolean isExistingWordInThisTitle = wordRepository.checkWord(word, title).isPresent();
+        if (isExistingWordInThisTitle) {
+            throw new RuntimeException("this is an existing word in this title");
+        }
+
         String translatedWord = "";
         if (!word.isEmpty() && !title.isEmpty()) {
             translatedWord = translate.translateFromEnToHu(word);
@@ -43,6 +48,11 @@ public class WordServiceImpl implements WordService {
     @Override
     public ArrayList<Word> getWordsByTitle(String title) {
         return wordRepository.findByTitle(title);
+    }
+
+    @Override
+    public Word search(String word) {
+        return wordRepository.searching(word);
     }
 
 }

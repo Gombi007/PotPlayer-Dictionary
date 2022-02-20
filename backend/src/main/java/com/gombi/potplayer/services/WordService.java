@@ -10,4 +10,6 @@ public interface WordService {
     Word saveWord(String title, String word);
 
     ArrayList<Word> getWordsByTitle(String title);
+
+    Word search(String word);
 }

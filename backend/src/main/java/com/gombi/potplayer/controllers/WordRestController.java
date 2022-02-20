@@ -22,6 +22,11 @@ public class WordRestController {
         return ResponseEntity.status(HttpStatus.OK).body(wordService.getWordsByTitle(title));
     }
 
+    @GetMapping("/search/{word}")
+    public ResponseEntity<Object> search(@PathVariable String word) {
+        return ResponseEntity.status(HttpStatus.OK).body(wordService.search(word));
+    }
+
     @GetMapping()
     public ResponseEntity<Object> saveANewWord(@RequestParam(name = "title", required = true) String title,
                                                @RequestParam(name = "word", required = true) String word) {

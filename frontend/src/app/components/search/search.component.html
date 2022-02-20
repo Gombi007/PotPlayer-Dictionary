@@ -1,1 +1,24 @@
-<p>search works!</p>
+<div class="row">
+    <div class="col-12 d-flex justify-content-center">
+        <h1 class="pt-2">Search</h1>
+    </div>
+</div>
+
+<form class="row d-flex justify-content-center pt-3">
+    <div class="col-auto">
+        <label for="inputPassword2" class="sr-only">Password</label>
+        <input type="password" class="form-control" id="inputPassword2" placeholder="word">
+    </div>
+    <div class="col-auto">
+        <button class="btn btn-dark mb-2">Search</button>
+    </div>
+</form>
+
+
+<div class="row">
+    <div class="col-12 d-flex justify-content-center">
+        <div *ngFor="let property of searchResult">
+            <h3></h3>
+                </div>
+    </div>
+</div>
