@@ -9,6 +9,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { SavedWordShowComponent } from './components/saved-word-show/saved-word-show.component';
 import { SearchComponent } from './components/search/search.component';
 import { ExportComponent } from './components/export/export.component';
+import { SaveComponent } from './components/save/save.component';
+import { MainComponent } from './components/main/main.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { ExportComponent } from './components/export/export.component';
     HeaderComponent,
     SavedWordShowComponent,
     SearchComponent,
-    ExportComponent
+    ExportComponent,
+    SaveComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
