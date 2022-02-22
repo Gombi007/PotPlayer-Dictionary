@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Word } from '../word.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { API } from '../api.enum';
 
 @Component({
   selector: 'app-search',
@@ -18,7 +19,8 @@ export class SearchComponent implements OnInit {
   }
 
   search() {   
-    this.httpClient.get<any>('http://localhost:8080/api/dictionary/search/'+this.searchingThisWord)
+    console.log(11);  
+    this.httpClient.get<any>(API.URL+'/search/'+this.searchingThisWord)
       .subscribe(
         response => {         
             this.searchResult = response;

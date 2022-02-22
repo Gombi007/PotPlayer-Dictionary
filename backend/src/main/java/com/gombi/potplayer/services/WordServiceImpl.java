@@ -4,6 +4,7 @@ import com.gombi.potplayer.models.entities.Word;
 import com.gombi.potplayer.repositories.WordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ public class WordServiceImpl implements WordService {
     }
 
     @Override
+    @Transactional
     public Word saveWord(String title, String word) {
         boolean isExistingWordInThisTitle = wordRepository.checkWord(word, title).isPresent();
         if (isExistingWordInThisTitle) {

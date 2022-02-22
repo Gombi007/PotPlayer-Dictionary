@@ -15,14 +15,20 @@
 </form>
 
 
-<div class="row pt-3">
-    <div class="col-12 d-flex justify-content-center">
-        <div class="search-result" *ngIf="searchResult">
-            <h4>TITLE: {{searchResult.title}}</h4>
-            <h4>ENGLISH: {{searchResult.word1}}</h4>
-            <h4>HUNGARIAN: {{searchResult.word2}}</h4>
-            <h4>SAVED AT: {{searchResult.date}} </h4>
+<div class="row mt-4">
+    <div class="col-12 d-flex justify-content-center search-result" *ngIf="searchResult">
+        <div class="col-auto me-3">
+            <h5>TITLE:</h5>
+            <h5>ENGLISH:</h5>
+            <h5>HUNGARIAN:</h5>
+            <h5>SAVED AT:</h5>
         </div>
-
+        <div class="col-auto">
+            <h5>{{searchResult.title}}</h5>
+            <h5>{{searchResult.word1}}</h5>
+            <h5>{{searchResult.word2}}</h5>
+            <h5>{{searchResult.date}} </h5>
+        </div>
     </div>
+
 </div>

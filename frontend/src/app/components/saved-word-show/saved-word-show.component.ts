@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import {API} from '../api.enum';
 
 @Component({
   selector: 'app-saved-word-show',
@@ -12,8 +13,8 @@ export class SavedWordShowComponent implements OnInit {
 
   public title: string;
   public word: string;
-  public translatedWord: string;
-  public date: string;
+  public translatedWord: string='-';
+  public date: string = '-';
   public wordsByTitle: string[];
   private id: number = 0;
 
@@ -22,22 +23,31 @@ export class SavedWordShowComponent implements OnInit {
     private httpClient: HttpClient
   ) { }
 
-  ngOnInit(): void {
-    
+  ngOnInit(): void {   
 
-    this.route.queryParams.subscribe(value => {
-      value.title == '' ? '' : this.title = value.title;
-      value.word == '' ? '' : this.word = value.word;
-      this.id++;
-      if (this.id === 2) {
-        this.translate();
-        this.showWordsByTitle();    
-      }
-    });
+this.route.queryParamMap.subscribe(value=>{
+  this.title = value.get('title');
+  this.word = value.get('word');  
+  if(this.word !== undefined && this.title !== undefined){
+    this.translate();
+    this.showWordsByTitle();   
+
   }
-
+});
+/*
+        this.route.queryParams.subscribe(value => {          
+          value.title == '' ? '' : this.title = value.title;
+          value.word == '' ? '' : this.word = value.word;
+          this.id++;       
+          if (this.id === 1) {
+          }
+        });
+        */
+    
+  } 
+ 
   translate() {
-    this.httpClient.get<any>('http://localhost:8080/api/dictionary?title=' + this.title + '&word=' + this.word)
+    this.httpClient.get<any>(API.URL+'?title=' + this.title + '&word=' + this.word)
       .subscribe(
         response => {
           this.translatedWord = response.word2;
@@ -46,7 +56,7 @@ export class SavedWordShowComponent implements OnInit {
   }
 
   showWordsByTitle() {
-    this.httpClient.get<any>('http://localhost:8080/api/dictionary/' + this.title)
+    this.httpClient.get<any>(API.URL +'/'+ this.title)
       .subscribe(
         response => {
           this.wordsByTitle = response;         
