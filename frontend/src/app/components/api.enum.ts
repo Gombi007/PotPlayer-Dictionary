@@ -1,3 +1,3 @@
  export enum API{
-    URL ='http://localhost:8080/api/dictionary'
+    URL ='http://localhost:8081/api/dictionary'
 }
