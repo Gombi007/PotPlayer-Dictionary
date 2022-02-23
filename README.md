@@ -8,7 +8,7 @@
 - Translate and save a word in the database
 - Search a word in the database 
 - ~~Export your set a csv file or just copy to clipboard (easy import your learning app for example Quizlet)~~ 
-- ~~Save a word via user interface not only in the Potplayer~~
+- Save a word via user interface not only in the Potplayer
 - ~~List your sets and modify them~~
 - ~~Mark the studied words on the list~~ 
 
