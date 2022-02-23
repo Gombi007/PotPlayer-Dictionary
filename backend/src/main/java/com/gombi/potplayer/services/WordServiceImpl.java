@@ -1,6 +1,7 @@
 package com.gombi.potplayer.services;
 
 import com.gombi.potplayer.exceptions.ResourceNotFoundException;
+import com.gombi.potplayer.exceptions.ThisWordWasSavedException;
 import com.gombi.potplayer.models.entities.Word;
 import com.gombi.potplayer.repositories.WordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class WordServiceImpl implements WordService {
     public Word saveWord(String title, String word) {
         boolean isExistingWordInThisTitle = wordRepository.checkWord(word, title).isPresent();
         if (isExistingWordInThisTitle) {
-            throw new RuntimeException("this is an existing word in this title");
+            throw new ThisWordWasSavedException("This word \"" + word + "\" was already saved");
         }
 
         String translatedWord = "";

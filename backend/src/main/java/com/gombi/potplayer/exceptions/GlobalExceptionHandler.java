@@ -16,4 +16,11 @@ public class GlobalExceptionHandler {
         messageMap.put("Message", exception.getMessage());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(messageMap);
     }
+
+    @ExceptionHandler(ThisWordWasSavedException.class)
+    public ResponseEntity<Object> handleSavedWord(ThisWordWasSavedException exception) {
+        HashMap<String, String> messageMap = new HashMap<>();
+        messageMap.put("Message", exception.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(messageMap);
+    }
 }
