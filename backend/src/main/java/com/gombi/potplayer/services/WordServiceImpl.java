@@ -1,5 +1,6 @@
 package com.gombi.potplayer.services;
 
+import com.gombi.potplayer.exceptions.ResourceNotFoundException;
 import com.gombi.potplayer.models.entities.Word;
 import com.gombi.potplayer.repositories.WordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,7 +55,11 @@ public class WordServiceImpl implements WordService {
 
     @Override
     public Word search(String word) {
-        return wordRepository.searching(word);
+        boolean isPresentWord = wordRepository.searching(word).isPresent();
+        if (isPresentWord) {
+            return wordRepository.searching(word).get();
+        }
+        throw new ResourceNotFoundException("There is no this word saved yet \"" + word + "\"");
     }
 
 }

@@ -16,7 +16,7 @@ public interface WordRepository extends CrudRepository<Word, Long> {
 
 
     @Query(value = "SELECT * FROM dictionary_en_hun WHERE word1 = :word OR  word2 = :word LIMIT 1", nativeQuery = true)
-    Word searching(String word);
+    Optional<Word> searching(String word);
 
 
     //check this word is exist
