@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Locale;
 
 @Service
@@ -33,7 +34,7 @@ public class WordServiceImpl implements WordService {
     public Word saveWord(String title, String word) {
         boolean isExistingWordInThisTitle = wordRepository.checkWord(word, title).isPresent();
         if (isExistingWordInThisTitle) {
-            throw new ThisWordWasSavedException("This word \"" + word + "\" was already saved");
+            throw new ThisWordWasSavedException("This word \"" + word + "\" was already saved in this set \"" + title + "\"");
         }
 
         String translatedWord = "";
@@ -41,6 +42,7 @@ public class WordServiceImpl implements WordService {
             translatedWord = translate.translateFromEnToHu(word);
         }
         word = word.toLowerCase(Locale.ROOT);
+        title = title.toLowerCase(Locale.ROOT);
         translatedWord = translatedWord.toLowerCase(Locale.ROOT);
 
         LocalDate localDate = LocalDate.now();
@@ -51,16 +53,28 @@ public class WordServiceImpl implements WordService {
 
     @Override
     public ArrayList<Word> getWordsByTitle(String title) {
+        boolean isEmptySet = wordRepository.findByTitle(title).isEmpty();
+        if (isEmptySet) {
+            throw new ResourceNotFoundException("There is no saved word in this set \"" + title + "\"");
+        }
         return wordRepository.findByTitle(title);
     }
 
     @Override
     public Word search(String word) {
         boolean isPresentWord = wordRepository.searching(word).isPresent();
-        if (isPresentWord) {
-            return wordRepository.searching(word).get();
+        if (!isPresentWord) {
+            throw new ResourceNotFoundException("There is no such word saved yet \"" + word + "\"");
         }
-        throw new ResourceNotFoundException("There is no this word saved yet \"" + word + "\"");
+        return wordRepository.searching(word).get();
+    }
+
+    public HashSet<String> getAllSetNameByTitle() {
+        boolean isEmptyDatabase = wordRepository.getAllSetByTitle().isEmpty();
+        if (isEmptyDatabase) {
+            throw new ResourceNotFoundException("There is no saved set in the database");
+        }
+        return wordRepository.getAllSetByTitle();
     }
 
 }
