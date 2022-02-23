@@ -9,22 +9,23 @@ import { API } from '../api.enum';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-   searchResult: Word;
-   searchingThisWord: string;
-
-
+  searchResult: Word;
+  searchingThisWord: string;
+  errorResponse: string;
+  
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
   }
 
-  search() {   
-    console.log(11);  
-    this.httpClient.get<any>(API.URL+'/search/'+this.searchingThisWord)
-      .subscribe(
-        response => {         
-            this.searchResult = response;
-        });       
+  search() {
+    this.searchResult= undefined;
+    this.errorResponse= undefined;
+    this.httpClient.get<any>(API.URL + '/search/' + this.searchingThisWord)
+      .subscribe({
+        next: (value)=> this.searchResult = value,
+        error: (error)=>this.errorResponse=error.error.Message
+      });
   }
 
 }
