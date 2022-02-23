@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'export', component: ExportComponent },
   { path: 'player', component: SavedWordShowComponent },
   { path: 'main', component: MainComponent },
+  { path: '', component: MainComponent },
   { path: 'save', component: SaveComponent },
   { path: 'collections', component: CollectionsComponent },
 ];
