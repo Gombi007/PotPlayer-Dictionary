@@ -1,1 +1,39 @@
-<p>save works!</p>
+<div class="row">
+    <div class="col-12 d-flex justify-content-center">
+        <h1 class="pt-2">Save</h1>
+    </div>
+</div>
+
+<form class="row d-flex justify-content-center pt-3" name="saveForm">
+    <div class="col-auto d-flex flex-column align-items-center">
+        <label for="title" class="w-100">Title</label>
+        <input type="text" class="form-control" id="title" placeholder="Title" name="title" required
+            [(ngModel)]="newWord.title">
+
+        <label for="title" class="w-100 mt-3">English</label>
+        <input type="text" class="form-control" id="title" placeholder="English word" name="word" required
+            [(ngModel)]="newWord.word1">
+            <button class="btn btn-dark mt-3 px-4" (click)="saving()">Save</button>
+        </div>        
+    </form>  
+      
+<div class="row mt-4 saved-content d-flex align-items-center justify-content-center"
+    *ngIf="savedWord.date !== undefined">
+    <div class="col-auto">
+        <h5>TITLE:</h5>
+        <h5>ENGLISH:</h5>
+        <h5>HUNGARIAN:</h5>
+        <h5>DATE:</h5>
+    </div>
+    <div class="col-auto">
+        <h5>{{savedWord.title}}</h5>
+        <h5>{{savedWord.word1}}</h5>
+        <h5>{{savedWord.word2}}</h5>
+        <h5>{{savedWord.date}}</h5>
+    </div>
+</div>
+
+<div class="col-12 mt-4 d-flex justify-content-center error" *ngIf="errorResponse">
+    <div class="col-auto me-3">
+        <h5>{{errorResponse}}</h5>
+    </div>

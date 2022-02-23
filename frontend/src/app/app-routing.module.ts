@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CollectionsComponent } from './components/collections/collections.component';
 import { ExportComponent } from './components/export/export.component';
 import { MainComponent } from './components/main/main.component';
 import { SaveComponent } from './components/save/save.component';
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'player', component: SavedWordShowComponent },
   { path: 'main', component: MainComponent },
   { path: 'save', component: SaveComponent },
+  { path: 'collections', component: CollectionsComponent },
 ];
 
 @NgModule({

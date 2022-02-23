@@ -11,6 +11,7 @@ import { SearchComponent } from './components/search/search.component';
 import { ExportComponent } from './components/export/export.component';
 import { SaveComponent } from './components/save/save.component';
 import { MainComponent } from './components/main/main.component';
+import { CollectionsComponent } from './components/collections/collections.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MainComponent } from './components/main/main.component';
     SearchComponent,
     ExportComponent,
     SaveComponent,
-    MainComponent
+    MainComponent,
+    CollectionsComponent
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@ package com.gombi.potplayer.services;
 import com.gombi.potplayer.models.entities.Word;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public interface WordService {
     ArrayList<Word> showAll();
@@ -12,4 +13,6 @@ public interface WordService {
     ArrayList<Word> getWordsByTitle(String title);
 
     Word search(String word);
+
+    public HashSet<String> getAllSetNameByTitle();
 }
