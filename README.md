@@ -8,7 +8,7 @@
 - Translate and save a word in the database
 - Search a word in the database 
 - ~~Export your set a csv file or just copy to clipboard (easy import your learning app for example Quizlet)~~ 
-- ~~Save a word via user interface not only in the Potplayer~~
+- Save a word via user interface not only in the Potplayer
 - ~~List your sets and modify them~~
 - ~~Mark the studied words on the list~~ 
 
@@ -35,33 +35,40 @@
 
    
 
-   ![potplayer03](player-dictionary-app\pics\potplayer03.jpg)
+<p align="center">
+ <img src="https://github.com/Gombi007/PotPlayer-Dictionary/blob/main/player-dictionary-app/pics/potplayer03.jpg?raw=true" alt="Potplayer 01"/>
+</p>
 
 
 
 6. Please click the **ADD** button
-
-![potplayer02](player-dictionary-app\pics\potplayer02.jpg)
-
-
+<p align="center">
+ <img src="https://github.com/Gombi007/PotPlayer-Dictionary/blob/main/player-dictionary-app/pics/potplayer02.jpg?raw=true" alt="Potplayer 02"/>
+</p>
 
 
 
 7. Add a title "Dictionary" and a path **http://localhost:8080/#/player?title=BigBangTheory&word=%%SS** and click the **OK** button 								After this step please move this registry to the  top of the table using the "**UP**" button as in the picture above																	You can modify the **"BigBangTheory"** part! This will be the title of your set. It can be anything
 
-   ![potplayer04](player-dictionary-app\pics\potplayer04.jpg)
+<p align="center">
+    <img src="https://github.com/Gombi007/PotPlayer-Dictionary/blob/main/player-dictionary-app/pics/potplayer04.jpg?raw=true" alt="Potplayer 03"/>
+</p>
 
    
 
 8. After these steps please click the **OK** button and click a word on the subtitle.
 
-   ![potplayer01](player-dictionary-app\pics\potplayer01.jpg)
+  <p align="center">
+ <img src="https://github.com/Gombi007/PotPlayer-Dictionary/blob/main/player-dictionary-app/pics/potplayer01.jpg?raw=true" alt="Potplayer 04"/>
+</p>
 
 
 
 9. You can see that your browser will open and you can see something same as the picture below, this was the last step													 After this you can click whichever word on the subtitle. That will be translated and saved automatically in your set.															 This set name will be the "title" in the path what you setup above
 
-   ![app01](player-dictionary-app\pics\app01.JPG)
+ <p align="center">
+    <img src="https://github.com/Gombi007/PotPlayer-Dictionary/blob/main/player-dictionary-app/pics/app01.JPG?raw=true" alt="Potplayer 05"/>
+ </p>
 
    
 
