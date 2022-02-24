@@ -16,12 +16,12 @@ public interface WordRepository extends CrudRepository<Word, Long> {
     ArrayList<Word> findByTitle(String title);
 
 
-    @Query(value = "SELECT * FROM dictionary_en_hun WHERE word1 = :word OR  word2 = :word LIMIT 1", nativeQuery = true)
+    @Query(value = "SELECT * FROM dictionary_en_hun WHERE (word1 = :word OR  word2 = :word) LIMIT 1", nativeQuery = true)
     Optional<Word> searching(String word);
 
 
-    //check this word is exist
-    @Query(value = "SELECT * FROM dictionary_en_hun WHERE (word1 = :word OR  word2 = :word) AND title= :title LIMIT 1", nativeQuery = true)
+    //check this word is exist in this set
+    @Query(value = "SELECT * FROM dictionary_en_hun WHERE ( word1 = :word OR   word2 = :word) AND  title= :title LIMIT 1", nativeQuery = true)
     Optional<Word> checkWord(String word, String title);
 
     @Query(value = "SELECT title FROM dictionary_en_hun ORDER BY title", nativeQuery = true)

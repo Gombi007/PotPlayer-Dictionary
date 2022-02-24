@@ -32,6 +32,8 @@ public class WordServiceImpl implements WordService {
     @Override
     @Transactional
     public Word saveWord(String title, String word) {
+        title = title.toLowerCase(Locale.ROOT);
+        word = word.toLowerCase(Locale.ROOT);
         boolean isExistingWordInThisTitle = wordRepository.checkWord(word, title).isPresent();
         if (isExistingWordInThisTitle) {
             throw new ThisWordWasSavedException("This word \"" + word + "\" was already saved in this set \"" + title + "\"");
@@ -53,6 +55,7 @@ public class WordServiceImpl implements WordService {
 
     @Override
     public ArrayList<Word> getWordsByTitle(String title) {
+        title = title.toLowerCase(Locale.ROOT);
         boolean isEmptySet = wordRepository.findByTitle(title).isEmpty();
         if (isEmptySet) {
             throw new ResourceNotFoundException("There is no saved word in this set \"" + title + "\"");
@@ -62,6 +65,7 @@ public class WordServiceImpl implements WordService {
 
     @Override
     public Word search(String word) {
+        word = word.toLowerCase(Locale.ROOT);
         boolean isPresentWord = wordRepository.searching(word).isPresent();
         if (!isPresentWord) {
             throw new ResourceNotFoundException("There is no such word saved yet \"" + word + "\"");
