@@ -4,15 +4,15 @@
     </div>
 </div>
 
-<form class="row d-flex justify-content-center pt-3" name="saveForm">
-    <div class="col-auto d-flex flex-column align-items-center">
+<form class="row d-flex justify-content-center pt-3 " name="saveForm">
+    <div class="col-auto d-flex flex-column align-items-center col-4">
         <label for="title" class="w-100">Title</label>
-        <input type="text" class="form-control" id="title" placeholder="Title" name="title" required
-            [(ngModel)]="newWord.title">
+        <input type="text" class="form-control" id="title" placeholder="{{placeholderTitle}}" name="title"
+            [(ngModel)]="newWord.title" [ngClass]="{'errorValidate' : inputTitleValidationFailed}">
 
         <label for="title" class="w-100 mt-3">English</label>
-        <input type="text" class="form-control" id="title" placeholder="English word" name="word" required
-            [(ngModel)]="newWord.word1">
+        <input type="text" class="form-control" id="title" placeholder="{{placeholderEnglishWord}}" name="word"
+            [(ngModel)]="newWord.word1" [ngClass]="{'errorValidate' : inputEnglishWordValidationFailed}">
             <button class="btn btn-dark mt-3 px-4" (click)="saving()">Save</button>
         </div>        
     </form>  
