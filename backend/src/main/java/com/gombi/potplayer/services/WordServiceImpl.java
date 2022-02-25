@@ -78,6 +78,7 @@ public class WordServiceImpl implements WordService {
         if (isEmptyDatabase) {
             throw new ResourceNotFoundException("There is no saved set in the database");
         }
+        wordRepository.getAllSetByTitle().forEach(a -> System.out.println(a));
         return wordRepository.getAllSetByTitle();
     }
 

@@ -53,7 +53,7 @@ export class SavedWordShowComponent implements OnInit {
 
   showWordsByTitle() {
     this.title = this.title.toUpperCase();
-    this.httpClient.get<any>(API.URL + '/' + this.title)
+    this.httpClient.get<any>(API.URL + '/search/title/' + this.title)
       .subscribe(
         response => {
           this.wordsByTitle = response;

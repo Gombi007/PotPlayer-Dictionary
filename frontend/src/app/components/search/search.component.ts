@@ -21,7 +21,7 @@ export class SearchComponent implements OnInit {
   search() {
     this.searchResult= undefined;
     this.errorResponse= undefined;
-    this.httpClient.get<any>(API.URL + '/search/' + this.searchingThisWord)
+    this.httpClient.get<any>(API.URL + '/search/word/' + this.searchingThisWord)
       .subscribe({
         next: (value)=> this.searchResult = value,
         error: (error)=>this.errorResponse=error.error.Message

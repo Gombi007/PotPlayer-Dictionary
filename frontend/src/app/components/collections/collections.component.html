@@ -3,3 +3,15 @@
         <h1 class="pt-2">Collections</h1>
     </div>
 </div>
+
+<div class="row">
+    <div class="flex-container">
+        <div *ngFor="let set of allSetUppercase" class="item" >
+            <div class="card bg-light text-black m-2" style="width: 18rem;">
+                <div class="card-body text-center">
+                    {{set}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    
