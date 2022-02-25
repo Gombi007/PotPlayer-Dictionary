@@ -6,12 +6,33 @@
 
 <div class="row">
     <div class="flex-container">
-        <div *ngFor="let set of allSetUppercase" class="item" >
-            <div class="card bg-light text-black m-2" style="width: 18rem;">
-                <div class="card-body text-center">
-                    {{set}}
+        <div *ngFor="let set of allSetUppercase; let id = index" class="item">
+            <button class="btn" (click)="showWordInSelectedTitle(id, set)">
+                <div [id]="id" class="card m-2" [ngClass]="this.id==clickedBtnId ?'selectedBtn':'notSelectedBtnBtn'">
+                    <div class="card-body text-center">
+                        {{set}}
+                    </div>
                 </div>
-            </div>
+            </button>
         </div>
     </div>
-</div>    
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <table class="table table-success table-hover table-borderless">
+            <thead>
+                <th class="myTable w-25">English</th>
+                <th class="myTable w-25">Hungarian</th>
+                <th class="myTable w-25">Date</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let wordRow of wordsByTitle">
+                    <td class="myTable">{{wordRow.word1}}</td>
+                    <td class="myTable">{{wordRow.word2}}</td>
+                    <td class="myTable">{{wordRow.date}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

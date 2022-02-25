@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { API } from '../api.enum';
 
 @Component({
@@ -12,12 +12,14 @@ export class CollectionsComponent implements OnInit {
   allSet: string[];
   allSetUppercase: string[];
   errorResponse: string;
-  selectedCard:string;
+  selectedCard: string;
+  wordsByTitle: string[];
+  clickedBtnId: number;
 
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
-    this.getAllSet();   
+    this.getAllSet();
   }
 
   getAllSet() {
@@ -29,13 +31,23 @@ export class CollectionsComponent implements OnInit {
       });
   }
 
+  showWordsByTitle(title: string) {
+    this.httpClient.get<any>(API.URL + '/search/title/' + title)
+      .subscribe(
+        response => {
+          this.wordsByTitle = response;
+        });
+  }
+
   uppercaseAllset() {
     this.allSetUppercase = this.allSet.map(title => {
       return title.toUpperCase()
-    }) 
+    })
   }
 
-  showWordInSelectedTitle(){
-console.log('selected:');
+  showWordInSelectedTitle(id: number, set: string) {
+    this.clickedBtnId = id;
+    this.showWordsByTitle(set);
   }
+
 }
