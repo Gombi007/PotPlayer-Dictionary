@@ -32,3 +32,17 @@
 .notSelectedBtnBtn {
   background-color: aqua;
 }
+
+.icons i {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  font-size: 1.3rem; 
+}
+.icon-btn-update{
+    color: rgb(118, 245, 181);
+
+}
+
+.icon-btn-delete{
+    color: rgb(236, 95, 95)
+}

@@ -9,7 +9,7 @@
         <div *ngFor="let set of allSetUppercase; let id = index" class="item">
             <button class="btn" (click)="showWordInSelectedTitle(id, set)">
                 <div [id]="id" class="card m-2" [ngClass]="this.id==clickedBtnId ?'selectedBtn':'notSelectedBtnBtn'">
-                    <div class="card-body text-center">
+                    <div class="card-body text-center">                        
                         {{set}}
                     </div>
                 </div>
@@ -25,12 +25,23 @@
                 <th class="myTable w-25">English</th>
                 <th class="myTable w-25">Hungarian</th>
                 <th class="myTable w-25">Date</th>
+                <th class="myTable w-25">Modify</th>
             </thead>
             <tbody>
                 <tr *ngFor="let wordRow of wordsByTitle">
                     <td class="myTable">{{wordRow.word1}}</td>
                     <td class="myTable">{{wordRow.word2}}</td>
                     <td class="myTable">{{wordRow.date}}</td>
+                    <td class="myTable">
+                        <div class="icons">
+                            <button class="btn icon-btn-update">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                            </button>
+                            <button class="btn icon-btn-delete">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </td>
                 </tr>
             </tbody>
         </table>
