@@ -4,14 +4,16 @@
     </div>
 </div>
 
-
 <div *ngIf="queryparamsValidateOk">
     <div class="row mt-4 saved-content d-flex align-items-center justify-content-center" *ngIf="errorResponse === '-'">
         <div class="col-12 d-flex justify-content-center">
-            <h3 *ngIf="savedWord.word2 === undefined">SAVING . . .</h3>
+            <h3 *ngIf="savedWord.word2 === undefined">
+                <p>Saving ...</p>
+                <i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i>
+            </h3>
             <h3 *ngIf="savedWord.word2 !== undefined">NEW WORD WAS SAVED!</h3>
         </div>
-        <div class="col-auto">
+        <div class="col-auto" *ngIf="savedWord.word2 !== undefined">
             <h5>TITLE:</h5>
             <h5>ENGLISH:</h5>
             <h5>HUNGARIAN:</h5>
@@ -30,7 +32,7 @@
             <h5>{{errorResponse}}</h5>
         </div>
     </div>
-    
+
     <div class="row mt-4">
         <div class="col-12">
             <table class="table table-success table-hover table-borderless">

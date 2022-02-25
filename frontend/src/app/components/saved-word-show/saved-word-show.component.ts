@@ -19,8 +19,8 @@ export class SavedWordShowComponent implements OnInit {
   actualCollectionTitle: string;
   savedWord: Word = new Word();
   queryparamsValidateOk: boolean;
-  queryparamFailedText:string;
-  
+  queryparamFailedText: string;
+
 
   constructor(
     private route: ActivatedRoute,
@@ -33,25 +33,29 @@ export class SavedWordShowComponent implements OnInit {
       this.savedWord.word2 = undefined;
       this.title = value.get('title');
       this.word = value.get('word');
-      this.validateQueryparams();    
+      this.validateQueryparams();
 
       if (this.queryparamsValidateOk) {
         this.translate();
-        this.showWordsByTitle();
       }
     });
-
   }
 
   translate() {
+
     this.httpClient.get<any>(API.URL + '?title=' + this.title + '&word=' + this.word)
-      .subscribe({
-        next: (value) => this.savedWord = value,
-        error: (error) => this.errorResponse = error.error.Message
-      });
+      .subscribe(
+        {
+          next: (value) => this.savedWord = value,
+          error: (error) => this.showWordsByTitle(error.error.Message),
+          complete: () => this.showWordsByTitle(null)
+        });
   }
 
-  showWordsByTitle() {
+  showWordsByTitle(errorMessage: string) {
+    if (errorMessage !== null) {
+      this.errorResponse = errorMessage;
+    }
     this.title = this.title.toUpperCase();
     this.httpClient.get<any>(API.URL + '/search/title/' + this.title)
       .subscribe(
@@ -63,20 +67,20 @@ export class SavedWordShowComponent implements OnInit {
 
   validateQueryparams() {
     this.queryparamsValidateOk = false;
-    
-    if (this.title === undefined || this.title.length <= 1 || !isNaN(Number(this.title))) {        
-      this.queryparamsValidateOk = false;     
+
+    if (this.title === undefined || this.title.length <= 1 || !isNaN(Number(this.title))) {
+      this.queryparamsValidateOk = false;
       this.queryparamFailedText = 'Title must be a min. 2 length text';
-      return false;     
+      return false;
     }
     if (this.word === undefined || this.word.length <= 1 || !isNaN(Number(this.word))) {
       this.queryparamsValidateOk = false;
       this.queryparamFailedText = 'English word must be a min. 2 length text';
       return false;
 
-    }      
-     this.queryparamsValidateOk = true;
-     return true;
-    } 
+    }
+    this.queryparamsValidateOk = true;
+    return true;
+  }
 
 }

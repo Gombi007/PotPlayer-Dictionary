@@ -1,6 +1,7 @@
 .card {
   box-shadow: 1px 0px 5px 2px rgb(209, 209, 209);
-  min-width: 10rem;
+  min-width: 10rem; 
+  font-weight: 500;
 }
 
 .flex-container {
@@ -16,7 +17,7 @@
 }
 .myTable {
   background-color: rgb(3, 97, 126);
-  color: azure;
+  color: white;
   font-size: larger;
   text-align: center;
 }
@@ -39,7 +40,7 @@
   font-size: 1.3rem; 
 }
 .icon-btn-update{
-    color: rgb(118, 245, 181);
+    color: rgb(61, 180, 120);
 
 }
 
