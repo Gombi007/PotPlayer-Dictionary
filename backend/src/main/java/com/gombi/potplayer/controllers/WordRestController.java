@@ -20,14 +20,19 @@ public class WordRestController {
     }
 
 
-    @GetMapping("/{title}")
+    @GetMapping("/search/title/{title}")
     public ResponseEntity<Object> getWordsByTitle(@PathVariable String title) {
         return ResponseEntity.status(HttpStatus.OK).body(wordService.getWordsByTitle(title));
     }
 
-    @GetMapping("/search/{word}")
+    @GetMapping("/search/word/{word}")
     public ResponseEntity<Object> search(@PathVariable String word) {
         return ResponseEntity.status(HttpStatus.OK).body(wordService.search(word));
+    }
+
+    @GetMapping("/search/title/all")
+    public ResponseEntity<Object> getAllSetByTitle() {
+        return ResponseEntity.status(HttpStatus.OK).body(wordService.getAllSetNameByTitle());
     }
 
     @GetMapping()

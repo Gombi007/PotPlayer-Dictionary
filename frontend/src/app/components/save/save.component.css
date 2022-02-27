@@ -8,3 +8,7 @@
     padding: 1rem;   
     box-shadow: 1px 0px 5px 2px rgb(204, 85, 85);
 }
+
+.errorValidate{
+    background-color: pink;
+}

@@ -4,40 +4,58 @@
     </div>
 </div>
 
-<div class="row mt-4 saved-content d-flex align-items-center justify-content-center">
-    <div class="col-12 d-flex justify-content-center">
-        <h3 *ngIf="translatedWord !== '-'">NEW WORD WAS SAVED!</h3>
-        <h3 *ngIf="translatedWord === '-'">SAVING . . .</h3>
+<div *ngIf="queryparamsValidateOk">
+    <div class="row mt-4 saved-content d-flex align-items-center justify-content-center" *ngIf="errorResponse === '-'">
+        <div class="col-12 d-flex justify-content-center">
+            <h3 *ngIf="savedWord.word2 === undefined">
+                <p>Saving ...</p>
+                <i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i>
+            </h3>
+            <h3 *ngIf="savedWord.word2 !== undefined">NEW WORD WAS SAVED!</h3>
+        </div>
+        <div class="col-auto" *ngIf="savedWord.word2 !== undefined">
+            <h5>TITLE:</h5>
+            <h5>ENGLISH:</h5>
+            <h5>HUNGARIAN:</h5>
+            <h5>DATE:</h5>
+        </div>
+        <div class="col-auto">
+            <h5>{{savedWord.title}}</h5>
+            <h5>{{savedWord.word1}}</h5>
+            <h5>{{savedWord.word2}}</h5>
+            <h5>{{savedWord.date}}</h5>
+        </div>
     </div>
-    <div class="col-auto">
-        <h5>TITLE:</h5>
-        <h5>ENGLISH:</h5>
-        <h5>HUNGARIAN:</h5>
-        <h5>DATE:</h5>
+
+    <div class="col-12 d-flex justify-content-center error" *ngIf="errorResponse !== '-'">
+        <div class="col-auto me-3">
+            <h5>{{errorResponse}}</h5>
+        </div>
     </div>
-    <div class="col-auto">
-        <h5>{{title}}</h5>
-        <h5>{{word}}</h5>
-        <h5>{{translatedWord}}</h5>
-        <h5>{{date}}</h5>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <table class="table table-success table-hover table-borderless">
+                <caption class="caption">{{title}}</caption>
+                <thead>
+                    <th class="myTable w-25">English</th>
+                    <th class="myTable w-25">Hungarian</th>
+                    <th class="myTable w-25">Date</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let wordRow of wordsByTitle">
+                        <td class="myTable">{{wordRow.word1}}</td>
+                        <td class="myTable">{{wordRow.word2}}</td>
+                        <td class="myTable">{{wordRow.date}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
-<div class="row mt-4">
-    <div class="col-12">
-        <table class="table table-success table-hover table-borderless">
-            <thead>
-                <th class="myTable">English</th>
-                <th class="myTable">Hungarian</th>
-                <th class="myTable">Date</th>
-            </thead>
-            <tbody>
-                <tr *ngFor="let wordRow of wordsByTitle">
-                    <td class="myTable">{{wordRow.word1}}</td>
-                    <td class="myTable">{{wordRow.word2}}</td>
-                    <td class="myTable">{{wordRow.date}}</td>
-                </tr>
-            </tbody>
-        </table>
+<div class="col-12 d-flex justify-content-center error" *ngIf="!queryparamsValidateOk">
+    <div class="col-auto me-3">
+        <h5>{{queryparamFailedText}}</h5>
     </div>
 </div>
