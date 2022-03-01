@@ -8,7 +8,7 @@
     <div class="flex-container">
         <div *ngFor="let set of allSetUppercase; let id = index" class="item">
             <button class="btn" (click)="showWordInSelectedTitle(id, set)">
-                <div [id]="id" class="card m-2" [ngClass]="this.id==clickedBtnId ?'selectedBtn':'notSelectedBtnBtn'">
+                <div class="card m-2" [ngClass]="id==clickedBtnId ?'selectedBtn':'notSelectedBtnBtn'">
                     <div class="card-body text-center">                        
                         {{set}}
                     </div>

@@ -12,6 +12,8 @@ import { ExportComponent } from './components/export/export.component';
 import { SaveComponent } from './components/save/save.component';
 import { MainComponent } from './components/main/main.component';
 import { CollectionsComponent } from './components/collections/collections.component';
+import { RockPaperScissorsComponent } from './components/games/rock-paper-scissors/rock-paper-scissors.component';
+import { GameContainerComponent } from './components/games/game-container/game-container.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { CollectionsComponent } from './components/collections/collections.compo
     ExportComponent,
     SaveComponent,
     MainComponent,
-    CollectionsComponent
+    CollectionsComponent,
+    RockPaperScissorsComponent,
+    GameContainerComponent
   ],
   imports: [
     BrowserModule,
