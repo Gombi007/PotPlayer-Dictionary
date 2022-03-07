@@ -12,7 +12,6 @@ export class RockPaperScissorsComponent implements OnInit {
   result: string = '';
   wait: boolean;
 
-
   constructor() { }
 
   ngOnInit(): void {
@@ -25,7 +24,7 @@ export class RockPaperScissorsComponent implements OnInit {
     this.wait = true;
     setTimeout(
       () => {
-        let choosenWord = event.target.id.toUpperCase();
+        let choosenWord = event.target.id.toUpperCase();    
         this.userChoice = choosenWord;
         this.generateComputerChoice();
         this.getResult();
