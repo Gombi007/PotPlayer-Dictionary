@@ -1,32 +1,10 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <div class="container-fluid">
-
-
-    <div class="col-sm-1">
-        <a  routerLink="/main" routerLinkActive="active" class="navbar-brand">Dictionary</a>
-    </div>
-    
-    <div class="col-sm-10 d-flex justify-content-center">
-        <ul class="navbar-nav">
-            <li class="navbar-nav">
-                <a class="nav-link active" routerLink="/save" routerLinkActive="active">Save</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" routerLink="/search" routerLinkActive="active">Search</a>
-                </li>
-                <li class="navbar-nav">
-                    <a class="nav-link active" routerLink="/export" routerLinkActive="active">Export</a>
-                </li> 
-                <li class="navbar-nav">
-                    <a class="nav-link active" routerLink="/collections" routerLinkActive="active">Collections</a>
-                </li>
-                <li class="navbar-nav">
-                    <a class="nav-link active" routerLink="/games" routerLinkActive="active">Games</a>
-                </li>                          
-            </ul>
-        </div>
-        <div class="col-sm-1"></div>
-    </div>
-        
- 
-</nav>
+<div class="header">
+    <a class="title" routerLink="/main" routerLinkActive="active">Dictionary</a>
+    <div class="splitter-middle"></div>
+    <a class="item" routerLink="/save" routerLinkActive="active">SAVE</a>
+    <a class="item" routerLink="/search" routerLinkActive="active">SEARCH</a>
+    <a class="item" routerLink="/export" routerLinkActive="active">EXPORT</a>
+    <a class="item" routerLink="/collections" routerLinkActive="active">COLLECTIONS</a>
+    <a class="item" routerLink="/games" routerLinkActive="active">GAMES</a>
+    <div class="splitter-end"></div>
+</div>
