@@ -4,10 +4,10 @@
 }
 
 .myTable{
-    background-color: rgb(3, 97, 126);
-    color: azure;
+    background-color: rgb(46, 45, 45);
+    color: white;
     font-size: larger;
-    text-align: center;   
+    text-align: center;
 }
 
 .error{
@@ -16,10 +16,10 @@
 }
 
 .caption{  
-    color: aliceblue;
+    color: white;
     caption-side: top;
     font-size: 2rem;
     text-align: center;
     letter-spacing: 0.5rem;     
-    background-color: rgb(3, 97, 126);
+    background-color: rgb(46, 45, 45);
 }
