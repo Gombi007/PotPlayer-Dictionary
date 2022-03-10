@@ -62,8 +62,11 @@ export class CollectionsComponent implements OnInit {
     this.selectedRow = wordRow;
   }
 
-  btnDelete(){
-
+  btnDelete(wordRow: Word) {
+    if (confirm('Are you sure to delete "' + wordRow.word1 + '" word from your set?')) {
+      console.log("Implement delete functionality here");
+    }
   }
+
 
 }

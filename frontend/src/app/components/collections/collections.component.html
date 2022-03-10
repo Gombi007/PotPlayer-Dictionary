@@ -59,7 +59,7 @@
                                 <i class="fa fa-floppy-o" aria-hidden="true"></i>
                             </button>
 
-                            <button class="btn icon-btn-delete" [disabled]="updateBtnWasPressed">
+                            <button class="btn icon-btn-delete"   (click)="btnDelete(wordRow)" [disabled]="updateBtnWasPressed">
                                 <i class="fa fa-trash" aria-hidden="true"></i>
                             </button>
                         </div>
