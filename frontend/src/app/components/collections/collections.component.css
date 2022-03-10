@@ -1,5 +1,5 @@
 .card {
-  box-shadow: 1px 0px 5px 2px rgb(209, 209, 209);
+  box-shadow: 1px 0px 5px 2px rgb(139, 139, 139);
   min-width: 10rem; 
   font-weight: 500;
 }
@@ -15,8 +15,8 @@
   outline: none ;
   box-shadow: none;
 }
-.myTable {
-  background-color: rgb(3, 97, 126);
+.myTable { 
+  background-color: rgb(46, 45, 45);
   color: white;
   font-size: larger;
   text-align: center;
@@ -28,10 +28,10 @@
 }
 
 .selectedBtn {
-  background-color: rgb(118, 69, 182);
+  background-color: gold;
 }
 .notSelectedBtnBtn {
-  background-color: aqua;
+  background-color: wheat;
 }
 
 .icons i {

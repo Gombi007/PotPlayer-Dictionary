@@ -1,11 +1,45 @@
-a:hover{
-    color: red !important;  
+.header {
+  background-color: black;
+  height: max-content;
+  border-bottom: 0.1rem solid gold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
 }
-a{
-    font-size: large;
-    font-weight: bold;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-   color: aqua !important;
-    
 
+.item {
+  text-align: center;
+  text-decoration: none;
+  color: wheat; 
+  font-family: "Fredoka", sans-serif;
+  font-size: calc(12px + 0.3vw);
+  padding-top: calc(6px + 0.4vw);
+  padding-bottom: calc(6px + 0.4vw);
+  width:10%;  
+}
+
+.item:hover {
+  color: gold;
+  font-size: calc(12px + 0.4vw);
+  padding-top: calc(6px + 0.3vw);
+  padding-bottom: calc(6px + 0.3vw);
+  text-decoration: overline;
+}
+
+.title {
+  padding-left: 10px;
+  text-decoration: none;
+  text-align: left;
+  color: wheat;
+  font-family: 'Dancing Script', sans-serif;  
+  font-size: calc(12px + 1.1vw);
+  min-width: fit-content;
+  width: 10%;
+}
+
+.splitter-middle {
+ width: 15%;
+}
+.splitter-end {
+ width: 25%;
 }

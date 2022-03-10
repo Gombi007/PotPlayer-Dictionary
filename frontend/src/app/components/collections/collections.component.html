@@ -8,7 +8,7 @@
     <div class="flex-container">
         <div *ngFor="let set of allSetUppercase; let id = index" class="item">
             <button class="btn" (click)="showWordInSelectedTitle(id, set)">
-                <div [id]="id" class="card m-2" [ngClass]="this.id==clickedBtnId ?'selectedBtn':'notSelectedBtnBtn'">
+                <div class="card m-2" [ngClass]="id==clickedBtnId ?'selectedBtn':'notSelectedBtnBtn'">
                     <div class="card-body text-center">                        
                         {{set}}
                     </div>
@@ -20,7 +20,7 @@
 
 <div class="row mt-4">
     <div class="col-12">
-        <table class="table table-success table-hover table-borderless">
+        <table class="table table-dark table-hover table-borderless">
             <thead>
                 <th class="myTable w-25">English</th>
                 <th class="myTable w-25">Hungarian</th>

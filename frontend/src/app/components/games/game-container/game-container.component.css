@@ -1,0 +1,15 @@
+.btn{
+    background-color: wheat !important;
+    margin: 1rem;
+}
+
+.title{
+    margin-bottom: 3rem;
+}
+
+.navigate{
+    width:max-content;
+    background-color:black;
+   border-radius: 1rem;;
+
+}

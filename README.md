@@ -3,6 +3,10 @@
 
 
 
+
+
+#### Actual version: https://potplayer-dictionary.herokuapp.com/#/
+
 #### Features
 
 - Translate and save a word in the database
@@ -54,7 +58,7 @@
     <img src="https://github.com/Gombi007/PotPlayer-Dictionary/blob/main/player-dictionary-app/pics/potplayer04.jpg?raw=true" alt="Potplayer 03"/>
 </p>
 
-   
+
 
 8. After these steps please click the **OK** button and click a word on the subtitle.
 
@@ -70,7 +74,7 @@
     <img src="https://github.com/Gombi007/PotPlayer-Dictionary/blob/main/player-dictionary-app/pics/app01.JPG?raw=true" alt="Potplayer 05"/>
  </p>
 
-   
+
 
 #### Used Technologies
 
