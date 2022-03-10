@@ -14,5 +14,7 @@ public interface WordService {
 
     Word search(String word);
 
-    public HashSet<String> getAllSetNameByTitle();
+    HashSet<String> getAllSetNameByTitle();
+
+    void deleteWordFromSet(Long id);
 }

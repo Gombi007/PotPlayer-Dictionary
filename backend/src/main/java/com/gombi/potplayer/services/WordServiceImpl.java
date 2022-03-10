@@ -81,4 +81,16 @@ public class WordServiceImpl implements WordService {
         return wordRepository.getAllSetByTitle();
     }
 
+    @Override
+    public void deleteWordFromSet(Long id) {
+        boolean existingId = wordRepository.existsById(id);
+
+        if (!existingId) {
+            throw new ResourceNotFoundException("Not found word by this id: " + id);
+        }
+        Word removeThisWord = wordRepository.findById(id).get();
+        wordRepository.delete(removeThisWord);
+
+    }
+
 }

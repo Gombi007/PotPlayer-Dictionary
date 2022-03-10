@@ -41,4 +41,11 @@ public class WordRestController {
         return ResponseEntity.status(HttpStatus.CREATED).body(wordService.saveWord(title, word));
     }
 
+    @DeleteMapping("{id}")
+    public ResponseEntity<Object> deleteWordFromSet(@PathVariable(name = "id", required = true) Long id) {
+        wordService.deleteWordFromSet(id);
+        return ResponseEntity.ok().build();
+
+    }
+
 }
