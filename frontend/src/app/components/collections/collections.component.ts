@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { API } from '../api.enum';
+import { Word } from '../word.model';
 
 @Component({
   selector: 'app-collections',
@@ -15,6 +16,10 @@ export class CollectionsComponent implements OnInit {
   selectedCard: string;
   wordsByTitle: string[];
   clickedBtnId: number;
+  //update
+  updateBtnWasPressed: boolean;
+  selectedRow: Word = new Word;
+
 
   constructor(private httpClient: HttpClient) { }
 
@@ -31,23 +36,34 @@ export class CollectionsComponent implements OnInit {
       });
   }
 
-  showWordsByTitle(title: string) {
-    this.httpClient.get<any>(API.URL + '/search/title/' + title)
-      .subscribe(
-        response => {
-          this.wordsByTitle = response;
-        });
-  }
-
   uppercaseAllset() {
     this.allSetUppercase = this.allSet.map(title => {
       return title.toUpperCase()
     })
   }
 
+
   showWordInSelectedTitle(id: number, set: string) {
     this.clickedBtnId = id;
     this.showWordsByTitle(set);
+  }
+
+  showWordsByTitle(title: string) {
+    this.httpClient.get<any>(API.URL + '/search/title/' + title)
+      .subscribe({
+        next: (response) => this.wordsByTitle = response
+      });
+
+  }
+
+  //update a row
+  btnUpdate(wordRow: Word) {
+    this.updateBtnWasPressed = !this.updateBtnWasPressed;
+    this.selectedRow = wordRow;
+  }
+
+  btnDelete(){
+
   }
 
 }

@@ -27,6 +27,8 @@ import { GameContainerComponent } from './components/games/game-container/game-c
     CollectionsComponent,
     RockPaperScissorsComponent,
     GameContainerComponent
+ 
+
   ],
   imports: [
     BrowserModule,
