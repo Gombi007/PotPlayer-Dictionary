@@ -12,9 +12,9 @@ export class CollectionsComponent implements OnInit {
 
   allSet: string[];
   allSetUppercase: string[];
-  errorResponse: string;
-  selectedCard: string;
   wordsByTitle: string[];
+  errorResponse: string;
+
   clickedBtnId: number;
   //update
   updateBtnWasPressed: boolean;
@@ -51,7 +51,8 @@ export class CollectionsComponent implements OnInit {
   showWordsByTitle(title: string) {
     this.httpClient.get<any>(API.URL + '/search/title/' + title)
       .subscribe({
-        next: (response) => this.wordsByTitle = response
+        next: (response) => this.wordsByTitle = response,
+        error: (error) => this.errorResponse = error.error.Message,
       });
 
   }
@@ -62,10 +63,26 @@ export class CollectionsComponent implements OnInit {
     this.selectedRow = wordRow;
   }
 
+
+  //delete row or set
   btnDelete(wordRow: Word) {
     if (confirm('Are you sure to delete "' + wordRow.word1 + '" word from your set?')) {
-      console.log("Implement delete functionality here");
+      this.httpClient.delete<any>(API.URL + '/' + wordRow.id)
+        .subscribe({
+          error: (error) => this.errorResponse = error.error.Message,
+          complete: () => this.checkLastWordInTitle(wordRow.title)
+        })
     }
+  }
+
+  checkLastWordInTitle(title:string){ 
+     if (this.wordsByTitle.length===1){
+        this.getAllSet();
+        this.wordsByTitle =[];
+     }else{
+       this.showWordsByTitle(title);
+     }
+
   }
 
 

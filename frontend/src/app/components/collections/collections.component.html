@@ -4,7 +4,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row" *ngIf="!errorResponse">
     <div class="flex-container">
         <div *ngFor="let set of allSetUppercase; let id = index" class="item">
             <button class="btn" (click)="showWordInSelectedTitle(id, set)">
@@ -17,7 +17,9 @@
         </div>
     </div>
 </div>
-
+<div class="error" *ngIf="errorResponse">
+    <h5>{{errorResponse}}</h5>
+</div>
 <div class="row mt-4">
     <div class="col-12">
         <table class="table table-dark table-hover table-borderless">
